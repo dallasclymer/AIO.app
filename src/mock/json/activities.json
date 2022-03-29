@@ -1,0 +1,42 @@
+[
+  {
+    "guid": "95c91ccf-fd79-4296-9ec4-4a24485f93cb",
+    "name": "gymnastics"
+  },
+  {
+    "guid": "a85225a2-6a1d-4fe6-94b7-a41a14866fe1",
+    "name": "swimming"
+  },
+  {
+    "guid": "e1157deb-9f25-412b-a31c-a8705de935a2",
+    "name": "football"
+  },
+  {
+    "guid": "d8a78766-5de9-48dd-95df-743d56dc6836",
+    "name": "soccer"
+  },
+  {
+    "guid": "ba76a67b-c27b-4d55-9b98-bddf541153f0",
+    "name": "yoga"
+  },
+  {
+    "guid": "9d545fe7-7061-497a-a672-447008ef93a9",
+    "name": "hockey"
+  },
+  {
+    "guid": "2007819b-34ec-46c1-8a8c-f15d4e7a9286",
+    "name": "basketball"
+  },
+  {
+    "guid": "e3060338-5c58-45cf-ba2b-f42489424d81",
+    "name": "tennis"
+  },
+  {
+    "guid": "8c115781-3104-43c4-9d11-80e229c4e378",
+    "name": "dance"
+  },
+  {
+    "guid": "1d2ab37b-26dc-4359-90fd-6c86fda536cd",
+    "name": "track"
+  }
+]

@@ -1,0 +1,153 @@
+https://json-generator.com/
+
+Members:
+[
+  '{{repeat(30)}}',
+  {
+    _id: '{{objectId()}}',
+    index: '{{index()}}',
+    guid: '{{guid()}}',
+    name: '{{firstName()}} {{surname()}}',
+    gender: '{{gender()}}',
+    email: '{{email()}}',
+    group: function (tags) {
+    var groups = [
+      '95c91ccf-fd79-4296-9ec4-4a24485f93cb',
+      'a85225a2-6a1d-4fe6-94b7-a41a14866fe1',
+      'e1157deb-9f25-412b-a31c-a8705de935a2',
+      'd8a78766-5de9-48dd-95df-743d56dc6836',
+      'ba76a67b-c27b-4d55-9b98-bddf541153f0',
+      '9d545fe7-7061-497a-a672-447008ef93a9',
+      '2007819b-34ec-46c1-8a8c-f15d4e7a9286',
+      'e3060338-5c58-45cf-ba2b-f42489424d81',
+      '8c115781-3104-43c4-9d11-80e229c4e378',
+      '1d2ab37b-26dc-4359-90fd-6c86fda536cd'];
+        return groups[tags.integer(0, groups.length - 1)];
+      },
+    registeredActivities: [],
+    paymentHistory: []
+  }
+]
+
+
+
+Payments:
+[
+  '{{repeat(0, 9)}}',
+  {
+    guid: '{{guid()}}',
+    member: function (tags) {
+    var members = [
+        '58c51877-4876-40fe-85c3-9c866d82c019',
+        '2acf9208-e2f9-43c3-b1f1-3d81f01e448b',
+        '2985640c-8b47-43f7-a824-b06a8d2b0205',
+        '25d52554-ba90-4afd-9d00-17ecd90c2980',
+        '0a0aafd9-1ba6-4366-9aa1-b36ef802c10a',
+        '0d5a1af0-449f-4d8b-ac93-bf0aa0d333ea',
+        'b6742d34-bc8b-4b9f-a3db-f0a84cd93a63',
+        '635d039b-b7bb-4f39-8c48-411b474043c7',
+        '66241ff2-4135-464a-ba54-258c8775e1e2',
+        '1455fc4f-c8ab-4372-be64-a37512eea14b',
+        '6a013d00-6e6e-4461-9ed5-338451bdc2e9',
+        'c1317e1f-10fe-43c1-96f9-b51ba7e91681',
+        'bea2b0f8-019a-408a-b91b-0611b1effd04',
+        '1070d38b-6009-4a05-a5d7-a6517173dadf',
+        'f019ca25-e0ca-48e5-9225-dbe218174ba8',
+        '5f0bfc80-713f-43da-b8ba-6ab1f392a1f9',
+        '7871cabb-5029-4dc4-b57c-68cba7250a16',
+        '37018b95-9aab-449e-b2e2-0db3ac4fc04c',
+        'b87efd38-9350-4f09-9a62-c44e977394f7',
+        '3fba91df-b1b9-498f-a0e0-0147b1557347',
+        '977a0875-f956-416a-b764-ad91463a58b9',
+        '2e0b4f39-6372-4e68-bb06-a49652a156d9',
+        '01a0403b-7358-4a20-8435-eae9ce60c067',
+        'f8098f2f-b9ac-45c7-af2b-9f767698aac5',
+        '4f032e11-a4bb-492e-b456-473c929df01a',
+        'a1b66995-8efe-4747-8283-ea97ec73068b',
+        'd37c7f60-3b44-4090-8152-c9106c186246',
+        'c00c20eb-32ae-4837-af87-46c98ffbdc28',
+        'c10ea2ce-f375-440e-8710-9c82c1a60770',
+        '1517ea90-03a8-4244-893e-4c2203b48e4e'
+      ];
+      return members[tags.integer(0, members.length - 1)];
+    },
+    amount: '{{floating(25, 75, 2, "$0,0.00")}}',
+    date: '{{date()}}',
+    appliedTowards: '{{guid()}}'
+  }
+]
+
+
+
+
+
+
+
+Groups:
+[
+  '{{repeat(10)}}',
+  {
+    guid: '{{guid()}}',
+    name: '{{company()}} Group'
+  }
+]
+
+
+Activities:
+[
+  '{{repeat(10)}}',
+  {
+    guid: '{{guid()}}',
+    name: ''
+  }
+]
+
+Locations:
+[
+  '{{repeat(10)}}',
+  {
+    guid: '{{guid()}}',
+    name: '',
+    desc: '',
+    hourlyRate: '{{floating(50, 150, 2, "$0,0.00")}}',
+    schedule: []
+  }
+]
+
+Bookings:
+[
+  '{{repeat(10)}}',
+  {
+    guid: '{{guid()}}',
+    group: function (tags) {
+    var groups = [
+        '0512fb5b-5685-43fd-886b-e22e773ce00e',
+        '1177a006-0576-4c6c-b594-bf53df8e2783',
+        'deff5737-e351-464d-b9e5-4aa0ded02d5b',
+        '516dede8-1ea4-4533-93d3-d31184978aa8',
+        'b4114fec-ead2-4380-9a0a-0b5b1ad2bafc',
+        '68403397-f1a7-40a8-bd49-53eec6dcf1d7',
+        'a6c92f33-8648-4c9b-ac81-723701db3a55',
+        '9fb04863-e7d2-4d37-b90d-65434ba10deb',
+        '83d7f060-d2b1-4b96-a378-573b4a849bf2',
+        '3d1e7be4-2a98-42a1-9e42-18a98dba036d'
+      ];
+      return groups[tags.integer(0, groups.length - 1)];
+    },
+    location: function (tags) {
+    var locations = [
+        'bb8dce07-592f-455e-ad5c-59b5a99f7394',
+        '7878ee6e-2760-4bbc-a668-ddf568f6c516',
+        'edc0036b-29e4-4381-90b8-462bdeb5c4f1',
+        '6c231e91-4c56-45d4-ad80-2e16924597bf',
+        '5ab907d3-5aff-4211-bd41-5f02245a3ead',
+        '4a2b10bb-fe4f-49c6-90fe-588149719fbe',
+        '4f8dab4c-96d8-4ddf-9d80-8b70501f84dd',
+        '9a205c7c-de6f-407f-a095-a2deeea72a28'
+      ];
+      return locations[tags.integer(0, locations.length - 1)];
+    }, 
+    date: '{{date()}}',
+    duration: '{{random([2], [4], [6], [8], [12])}}'
+  }
+]

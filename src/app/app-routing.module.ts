@@ -9,6 +9,10 @@ const routes: Routes = [
     redirectTo: "my-group",
   },
   {
+    path: "register",
+    loadChildren: () => import('./modules/register/register.module').then(m => m.RegisterModule)
+  },
+  {
     path: "my-group",
     loadChildren: () => import('./modules/groups/groups.module').then(m => m.GroupsModule)
   },

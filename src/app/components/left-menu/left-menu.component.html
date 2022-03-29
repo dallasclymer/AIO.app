@@ -2,22 +2,27 @@
     <div class="position-sticky pt-3">
       <ul class="nav flex-column">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page"routerLink="/my-group">
+          <a class="nav-link" [routerLinkActive]="['active']" aria-current="page"routerLink="/register">
+            Registration Forms
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLinkActive]="['active']" aria-current="page"routerLink="/my-group">
             My Group
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/upcoming-activities">
+          <a class="nav-link" [routerLinkActive]="['active']" routerLink="/upcoming-activities">
             Activities
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/my-team">
+          <a class="nav-link" [routerLinkActive]="['active']" routerLink="/my-team">
             Team Roster
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link"routerLink="/billing">
+          <a class="nav-link" [routerLinkActive]="['active']" routerLink="/billing">
             Billing
           </a>
         </li>
@@ -28,17 +33,17 @@
       </h6>
       <ul class="nav flex-column mb-2">
         <li class="nav-item">
-          <a class="nav-link"routerLink="/manage/spaces">
+          <a class="nav-link" [routerLinkActive]="['active']" routerLink="/manage/spaces">
             Event Spaces
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="manage/groups">
+          <a class="nav-link" [routerLinkActive]="['active']" routerLink="manage/groups">
             Groups Management
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="manage/members">
+          <a class="nav-link" [routerLinkActive]="['active']" routerLink="manage/members">
             Members
           </a>
         </li>

@@ -1,0 +1,58 @@
+[
+  {
+    "guid": "bb8dce07-592f-455e-ad5c-59b5a99f7394",
+    "name": "Large Gym",
+    "desc": "",
+    "hourlyRate": "$136.27",
+    "schedule": []
+  },
+   {
+    "guid": "7878ee6e-2760-4bbc-a668-ddf568f6c516",
+    "name": "Small Gym",
+    "desc": "",
+    "hourlyRate": "$63.50",
+    "schedule": []
+  },
+  {
+    "guid": "edc0036b-29e4-4381-90b8-462bdeb5c4f1",
+    "name": "Court 1",
+    "desc": "",
+    "hourlyRate": "$75.43",
+    "schedule": []
+  },
+  {
+    "guid": "6c231e91-4c56-45d4-ad80-2e16924597bf",
+    "name": "Court 2",
+    "desc": "",
+    "hourlyRate": "$115.85",
+    "schedule": []
+  },
+  {
+    "guid": "5ab907d3-5aff-4211-bd41-5f02245a3ead",
+    "name": "Field 1",
+    "desc": "",
+    "hourlyRate": "$70.61",
+    "schedule": []
+  },
+  {
+    "guid": "4a2b10bb-fe4f-49c6-90fe-588149719fbe",
+    "name": "Rink 1",
+    "desc": "",
+    "hourlyRate": "$50.18",
+    "schedule": []
+  },
+  {
+    "guid": "4f8dab4c-96d8-4ddf-9d80-8b70501f84dd",
+    "name": "Rink 2",
+    "desc": "",
+    "hourlyRate": "$84.03",
+    "schedule": []
+  },
+  {
+    "guid": "9a205c7c-de6f-407f-a095-a2deeea72a28",
+    "name": "Pool",
+    "desc": "",
+    "hourlyRate": "$92.02",
+    "schedule": []
+  }
+]

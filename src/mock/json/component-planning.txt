@@ -1,0 +1,230 @@
+Lists
+---------------
+Groups
+Members
+Activities
+Locations
+
+
+Details
+---------------
+Group
+    - Name
+    - Members (List)
+    - Allowed Activities (List)
+    - Bookings (Schedule of Location(s) of Activitie(s) assigned to group)
+Member
+    - Name
+    - Gender
+    - Email
+    - Group(s)
+    - Activities (List)
+    - Payment History (List)
+Activity
+    - Name
+
+Location
+    - Name
+    - Description
+    - Hourly Rate
+    - Booking History (List of schedule)
+
+
+
+
+member: function (tags) {
+    var members = [
+        '58c51877-4876-40fe-85c3-9c866d82c019',
+        '2acf9208-e2f9-43c3-b1f1-3d81f01e448b',
+        '2985640c-8b47-43f7-a824-b06a8d2b0205',
+        '25d52554-ba90-4afd-9d00-17ecd90c2980',
+        '0a0aafd9-1ba6-4366-9aa1-b36ef802c10a',
+        '0d5a1af0-449f-4d8b-ac93-bf0aa0d333ea',
+        'b6742d34-bc8b-4b9f-a3db-f0a84cd93a63',
+        '635d039b-b7bb-4f39-8c48-411b474043c7',
+        '66241ff2-4135-464a-ba54-258c8775e1e2',
+        '1455fc4f-c8ab-4372-be64-a37512eea14b',
+        '6a013d00-6e6e-4461-9ed5-338451bdc2e9',
+        'c1317e1f-10fe-43c1-96f9-b51ba7e91681',
+        'bea2b0f8-019a-408a-b91b-0611b1effd04',
+        '1070d38b-6009-4a05-a5d7-a6517173dadf',
+        'f019ca25-e0ca-48e5-9225-dbe218174ba8',
+        '5f0bfc80-713f-43da-b8ba-6ab1f392a1f9',
+        '7871cabb-5029-4dc4-b57c-68cba7250a16',
+        '37018b95-9aab-449e-b2e2-0db3ac4fc04c',
+        'b87efd38-9350-4f09-9a62-c44e977394f7',
+        '3fba91df-b1b9-498f-a0e0-0147b1557347',
+        '977a0875-f956-416a-b764-ad91463a58b9',
+        '2e0b4f39-6372-4e68-bb06-a49652a156d9',
+        '01a0403b-7358-4a20-8435-eae9ce60c067',
+        'f8098f2f-b9ac-45c7-af2b-9f767698aac5',
+        '4f032e11-a4bb-492e-b456-473c929df01a',
+        'a1b66995-8efe-4747-8283-ea97ec73068b',
+        'd37c7f60-3b44-4090-8152-c9106c186246',
+        'c00c20eb-32ae-4837-af87-46c98ffbdc28',
+        'c10ea2ce-f375-440e-8710-9c82c1a60770',
+        '1517ea90-03a8-4244-893e-4c2203b48e4e'
+    ];
+    return members[tags.integer(0, members.length - 1)];
+  },
+
+
+activities: function (tags) {
+    var activites = [
+        '95c91ccf-fd79-4296-9ec4-4a24485f93cb',
+        'a85225a2-6a1d-4fe6-94b7-a41a14866fe1',
+        'e1157deb-9f25-412b-a31c-a8705de935a2',
+        'd8a78766-5de9-48dd-95df-743d56dc6836',
+        'ba76a67b-c27b-4d55-9b98-bddf541153f0',
+        '9d545fe7-7061-497a-a672-447008ef93a9',
+        '2007819b-34ec-46c1-8a8c-f15d4e7a9286',
+        'e3060338-5c58-45cf-ba2b-f42489424d81',
+        '8c115781-3104-43c4-9d11-80e229c4e378',
+        '1d2ab37b-26dc-4359-90fd-6c86fda536cd'
+    ];
+    return activites[tags.integer(0, activites.length - 1)];
+  },
+
+
+
+group: function (tags) {
+    var groups = [
+        '0512fb5b-5685-43fd-886b-e22e773ce00e',
+        '1177a006-0576-4c6c-b594-bf53df8e2783',
+        'deff5737-e351-464d-b9e5-4aa0ded02d5b',
+        '516dede8-1ea4-4533-93d3-d31184978aa8',
+        'b4114fec-ead2-4380-9a0a-0b5b1ad2bafc',
+        '68403397-f1a7-40a8-bd49-53eec6dcf1d7',
+        'a6c92f33-8648-4c9b-ac81-723701db3a55',
+        '9fb04863-e7d2-4d37-b90d-65434ba10deb',
+        '83d7f060-d2b1-4b96-a378-573b4a849bf2',
+        '3d1e7be4-2a98-42a1-9e42-18a98dba036d'
+    ];
+    return groups[tags.integer(0, groups.length - 1)];
+  },
+
+
+
+
+
+location: function (tags) {
+    var locations = [
+        'bb8dce07-592f-455e-ad5c-59b5a99f7394',
+        '7878ee6e-2760-4bbc-a668-ddf568f6c516',
+        'edc0036b-29e4-4381-90b8-462bdeb5c4f1',
+        '6c231e91-4c56-45d4-ad80-2e16924597bf',
+        '5ab907d3-5aff-4211-bd41-5f02245a3ead',
+        '4a2b10bb-fe4f-49c6-90fe-588149719fbe',
+        '4f8dab4c-96d8-4ddf-9d80-8b70501f84dd',
+        '9a205c7c-de6f-407f-a095-a2deeea72a28'
+    ];
+    return locations[tags.integer(0, locations.length - 1)];
+  },
+
+
+  appliedTowards: function (tags) {
+    var bookings = [
+        '8ba2c2be-8dc4-4d1f-8533-15b52f064799',
+        '079336b4-f92e-4bac-9b7f-81316742d52a',
+        '22b576b7-ca9e-4f32-8336-8aac4c9d56be',
+        '2d3508f7-1c9f-4b4f-b646-077e6f36290d',
+        'c1314601-bbbc-4df5-925a-ba1c2a896be3',
+        '99eba9cd-23c8-47da-bb90-7e4849a281ca',
+        '3df0bfad-36cc-4374-bde3-ac9b02f9b671',
+        '82eb4dd2-4062-4581-9ac0-f907f6ff5717',
+        'be0db83b-b303-40a2-8dc2-edc0ccd2d094',
+        '8fc95156-be9b-440d-974e-9b818ee27540',
+        '05763324-f2b6-4840-a073-a55cd5a00f0e',
+        'a097da8e-ff4a-415e-8cac-1c258aa9da38',
+        '010c084d-d902-4ad1-aa67-5f85b6725042',
+        '9b9df17d-c6f0-4c51-b7da-3ca573c325f1',
+        'c6d0dcf0-778d-478d-abaa-91478e1a4399',
+        '60270cee-5682-4a65-b2b8-300b3a1329fb',
+        '2c1e36a8-67a5-4383-9a41-33865061f5a7',
+        '8bec54f5-990d-4c5f-a382-94a28aeb34c6',
+        'c19391b5-9106-4b4c-8631-2754f32469e9',
+        '66fd2eac-ead2-4ce2-a15e-d3ebd637e704',
+        '9d08f381-ca09-4da2-9f02-afa9b05b60db',
+        '09e44fd7-1eef-4007-a259-87a02d8dd87f',
+        'c5abcbb9-846a-4e9c-86bf-60a8e57c4a24',
+        '810bae97-ee5f-4f64-bbb8-31293ed5ffca',
+        '46f5eb9d-d98f-409b-93e8-4ccfb2c81bba',
+        'd38b9f5c-8064-4ed7-8af7-d48403efa495',
+        'd212f226-19fd-49b0-b81c-5a4cc38beb62',
+        'f028ab7a-06b3-43b8-9449-165ddf1e38c5',
+        'a05966e8-de52-4eea-a6a3-8a6d4ed5e23c',
+        '698eb63d-66a4-4c9a-b2e5-228e2407eb2e',
+        '5eac2e52-770b-4617-a762-4dd01a6f6de1',
+        '32cfebfa-1672-4076-a41c-91f4c35042cd',
+        '838ea0d9-5017-4554-b406-cd80654e0b48',
+        'cc32356f-da33-4d25-a4f1-562a0a8ebd07',
+        '70ae34e1-eba8-4bf2-83e6-1a6b4b9472b0',
+        '2dac620a-893d-4ca1-8e51-3a191da8d1e2',
+        '2faf0bfd-94c8-4b69-97b7-78e772f51b5a',
+        '62bb5766-868c-4c33-9aba-0afed32a4cb3',
+        'a58ed43e-a69d-4ef4-a9df-c3dab107f48f',
+        'b3aaa985-5a85-46e0-a56a-b3125a2a8caa',
+        '339d901b-2653-4da9-a013-76adc2338739',
+        '248d78f9-9e88-4826-888a-f076349e7b59',
+        '43a65a1b-9637-4046-a8a4-5b5474a29b55',
+        'a8f6ede5-8cba-477b-8008-e0366128e65d',
+        'eaadb081-bf4e-40d3-9073-6b1df031ba89',
+        '8c012d82-39f2-4a41-ba4e-eaa2fbd6304e',
+        '95898003-7bba-4e54-ae6d-fc5f1a2f7864',
+        'fa5446b5-ff07-4e42-840d-8d4fc4795572',
+        'ade9400d-44b2-428a-bcd1-07a0a15c9df4',
+        'c9fdce21-74de-4ff5-90f3-61d2ae82c862',
+        '90baece8-a094-4d09-aeea-784b3c0d1d80',
+        '87b64751-d179-4772-a468-7eb8234abf2c',
+        'ca9bd403-13e1-4fde-9ef0-bf3772874c5e',
+        '6a2423e7-7e7f-4238-abc8-f69170d857e6',
+        'bedc1506-3733-42c4-bb19-1f30a884d60e',
+        '08ddf1da-82a0-4951-ba20-cb1072c36a64',
+        '819e597d-3e00-420d-a2bf-2eb38c027cd5',
+        '5fb4002b-4216-4ec6-9f94-3348460fae00',
+        'd3f5d1c6-7f43-49a7-acaa-507c97e06f9a',
+        '0ed1e441-b60c-4883-a14b-260ba8f6702f',
+        '53b2fd57-6294-4a18-b251-2c8e0142434f',
+        'fb169a7a-f5d2-4e77-afff-f1a08e5e9919',
+        '421a5997-5ad8-4977-bddb-b620bce8a0ac',
+        '75413316-b6b1-4879-a52a-f32d7680098c',
+        '0c689e3e-1409-4166-bce2-7ebf3247dbba',
+        'ae547a31-e95a-431d-a366-46e3e3c42a86',
+        'c081808c-3002-4c2f-99de-3d6c8bf65353',
+        '29f9d21d-6132-4219-9ce1-20195ef6bec7',
+        '6cea2b65-5e7c-4379-b8f2-e6cdc0c240de',
+        '95ca89f1-7283-4c81-881e-01c835f28b96',
+        'fa97b1ce-0ee4-4cef-a506-9d4edae4d0e0',
+        '673b437f-bd23-4e71-8f31-1ab0c690a04f',
+        '01e7f43d-ef5e-454a-a43f-1c9f89c4a74f',
+        '3bff8cfd-5330-4f92-9e66-1486683cd28d',
+        '3faf18ee-3954-420c-b87a-c010ce24ebfc',
+        'fe9227a2-d8a9-493e-aee8-4bd9459958fc',
+        '6b6038d9-f1cf-4606-8e38-ed58d1972062',
+        'c332d1da-9145-48df-88df-4f71ced35df2',
+        '6797cf3a-e57c-4199-a57e-2c8fbe19ca6a',
+        'ddbaeb8c-1935-4c56-8b6a-21d883856d29',
+        '59cbfac1-220d-4292-afad-e3bdfd4c6518',
+        '8ec8c144-9776-4118-b29f-1a12bb8a19da',
+        '73d08140-66ab-4104-b79b-36db5bf870f8',
+        'e3998eda-d5d3-4d25-a239-a607932f0621',
+        'e737d3b2-ef8d-432b-a00e-a448facc62d4',
+        'dcdab9ae-6f88-4af1-adde-769b925ac706',
+        '284724e1-8921-422e-8ed8-c67494357e54',
+        '37b4a912-923e-4d64-abbf-04423447659b',
+        '43a3626c-808b-4026-840f-634fbaa20aaa',
+        '4c1b2fda-64a6-4d9c-8a3d-b6a39ce723be',
+        'c9a37b40-b2a7-4ba3-b66d-346420e65e5e',
+        '246048c6-2419-4d42-a4a9-42e35965fe67',
+        '9fb04863-e7d2-4d37-b90d-65434ba10deb',
+        '2a89b577-e470-46e0-afc2-5ade26741668',
+        '75f2da71-43e3-4427-ae83-58f152b088b8',
+        '39f3aa65-45c0-4487-b32d-24050496b75a',
+        'b66f806f-b9bb-4fa2-8d10-9beb87a8860a',
+        'cde9227e-c0f7-477e-80ff-1149c84c4357',
+        '2dbcbf23-0381-496c-bb94-94ffd6fc7528'
+    ];
+    return bookings[tags.integer(0, bookings.length - 1)];
+  },
+
+
