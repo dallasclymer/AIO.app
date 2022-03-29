@@ -1,1 +1,22 @@
-<p>Management details works!</p>
+<!-- <div class="jumbotron">
+    <h1 class="display-4">Hello, world!</h1>
+    <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+    <hr class="my-4">
+    <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+    <p class="lead">
+      <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+    </p>
+  </div> -->
+
+
+  <div class="bg-dark text-light container-fluid">
+    <p> Registration for {{ selected }}</p>
+    <fa-icon [icon]="model?.icon" size="4x" class="text-warning py-3"></fa-icon>
+    <pre>{{ model | json}}</pre>
+  </div>
+
+<pre>
+    Account Profile: {{ model?.type }}
+    Registration for: {{ model?.name }}
+    Price: {{ model?.price }} /mo
+</pre>

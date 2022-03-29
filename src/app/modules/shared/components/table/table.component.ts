@@ -5,46 +5,50 @@ import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 
-interface Country {
-  name: string;
-  flag: string;
-  area: number;
-  population: number;
+interface Data {
+  activity: string;
+  date: string;
+  time: string;
+  space: string;
 }
 
-const COUNTRIES: Country[] = [
+const DATA: Data[] = [
   {
-    name: 'Russia',
-    flag: 'f/f3/Flag_of_Russia.svg',
-    area: 17075200,
-    population: 146989754
+    activity: 'Flag Football',
+    date: '3/26/22',
+    time: '3:30 PM',
+    space: 'King\'\s Landing Stadium'
   },
   {
-    name: 'Canada',
-    flag: 'c/cf/Flag_of_Canada.svg',
-    area: 9976140,
-    population: 36624199
+    activity: 'Soccer Game',
+    date: '3/26/22',
+    time: '3:30 PM',
+    space: 'Dorne Field'
   },
   {
-    name: 'United States',
-    flag: 'a/a4/Flag_of_the_United_States.svg',
-    area: 9629091,
-    population: 324459463
+    activity: 'Hockey Practice',
+    date: '3/27/22',
+    time: '3:30 PM',
+    space: 'Baratheon Rink'
   },
   {
-    name: 'China',
-    flag: 'f/fa/Flag_of_the_People%27s_Republic_of_China.svg',
-    area: 9596960,
-    population: 1409517397
-  }
+    activity: 'Hockey Practice',
+    date: '3/29/22',
+    time: '3:30 PM',
+    space: 'Lannister Rink'
+  },
+  {
+    activity: 'Soccer Practice',
+    date: '4/2/22',
+    time: '3:30 PM',
+    space: 'Dorne Field'
+  },
 ];
 
-function search(text: string, pipe: PipeTransform): Country[] {
-  return COUNTRIES.filter(country => {
+function search(text: string, pipe: PipeTransform): Data[] {
+  return DATA.filter(data => {
     const term = text.toLowerCase();
-    return country.name.toLowerCase().includes(term)
-        || pipe.transform(country.area).includes(term)
-        || pipe.transform(country.population).includes(term);
+    return data.activity.toLowerCase().includes(term) || pipe.transform(data.space).includes(term)
   });
 }
 
@@ -55,11 +59,11 @@ function search(text: string, pipe: PipeTransform): Country[] {
   providers: [DecimalPipe]
 })
 export class TableComponent {
-  countries$: Observable<Country[]>;
+  data$: Observable<Data[]>;
   filter = new FormControl('');
 
   constructor(pipe: DecimalPipe) { 
-    this.countries$ = this.filter.valueChanges.pipe(
+    this.data$ = this.filter.valueChanges.pipe(
       startWith(''),
       map(text => search(text, pipe))
     );

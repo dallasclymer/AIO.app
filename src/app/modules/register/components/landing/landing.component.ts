@@ -4,7 +4,6 @@ import {
   faPerson,
   faChild,
   faPeopleGroup,
-
  } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
