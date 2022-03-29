@@ -1,22 +1,61 @@
-<!-- <div class="jumbotron">
-    <h1 class="display-4">Hello, world!</h1>
-    <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-    <hr class="my-4">
-    <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-    <p class="lead">
-      <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-    </p>
-  </div> -->
+<div class="bg-dark text-light container-fluid py-2">
+  <div class="d-flex flex-row align-items-center row">
+    <fa-icon
+      [icon]="model?.icon"
+      size="4x"
+      class="col-12 col-sm-2 col-md-auto"
+      ngClass="{{ model.colorClass }}"
+    ></fa-icon>
 
-
-  <div class="bg-dark text-light container-fluid">
-    <p> Registration for {{ selected }}</p>
-    <fa-icon [icon]="model?.icon" size="4x" class="text-warning py-3"></fa-icon>
-    <pre>{{ model | json}}</pre>
+    <div class="d-flex flex-column col-sm-12 col-12 col-sm-10 col-md-10">
+      <h2>Register {{ model.name }}</h2>
+      <p *ngIf="model.restrictions" class="text-danger">
+        * {{ model?.restrictions }}
+      </p>
+    </div>
   </div>
+</div>
 
-<pre>
-    Account Profile: {{ model?.type }}
-    Registration for: {{ model?.name }}
-    Price: {{ model?.price }} /mo
-</pre>
+<!-- <pre>{{ model | json }}</pre> -->
+
+<div
+  class="container bg-dark bg-opacity-10 rounded p-3 mt-5 col-12 col-sm-10 col-md-10 col-lg-6 d-flex flex-column"
+>
+  <form
+    [formGroup]="profileForm"
+    (ngSubmit)="onSubmit()"
+    class="d-flex flex-column"
+  >
+    <label for="first-name" class="">First Name: </label>
+    <input id="first-name" class="form-control" type="text" formControlName="firstName" required />
+
+    <label for="last-name">Last Name: </label>
+    <input id="last-name" class="form-control" type="text" formControlName="lastName" />
+
+    <div formGroupName="address" class="pt-3 col-12 col-lg-10">
+      <h6>Address</h6>
+
+      <label for="street">Street: </label>
+      <input id="street" class="form-control" type="text" formControlName="street" />
+
+      <label for="city">City: </label>
+      <input id="city" class="form-control" type="text" formControlName="city" />
+
+      <label for="state">State: </label>
+      <input id="state" class="form-control" type="text" formControlName="state" />
+
+      <label for="zip">Zip Code: </label>
+      <input id="zip" class="form-control" type="text" formControlName="zip" />
+    </div>
+
+    <button type="submit" class="btn btn-outline-success col-12 col-sm-2 my-4" [disabled]="!profileForm.valid" >Submit</button>
+  </form>
+
+  <div class="d-flex flex-column">
+
+    <pre class="bg-warning">
+      <p>Form Value: {{ profileForm.value | json }}</p>
+    <p>Form Status: {{ profileForm.status }}</p>
+    </pre>
+  </div>
+</div>

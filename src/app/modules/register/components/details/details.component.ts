@@ -2,6 +2,8 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 
+import { FormBuilder, Validators, FormArray } from '@angular/forms';
+
 import { 
   faPerson,
   faChild,
@@ -22,15 +24,15 @@ const model: model[] = [
     type: 'person',
     name: 'Yourself',
     icon: 'faPerson',
-    colorClass: 'warning',
+    colorClass: 'text-warning',
     price: 19.99,
-    restrictions: 'vc'
+    restrictions: ''
   },
   {
     type: 'parent',
     name: 'Child',
     icon: 'faChild',
-    colorClass: 'primary',
+    colorClass: 'text-primary',
     price: 9.99,
     restrictions: 'Child must be at least 5 years of age and younger than 17 years of age'
   },
@@ -38,9 +40,9 @@ const model: model[] = [
     type: 'organizer',
     name: 'Group',
     icon: 'faPeopleGroup',
-    colorClass: 'success',
+    colorClass: 'text-success',
     price: 75.00,
-    restrictions: 'None'
+    restrictions: ''
   },
 
 ]
@@ -60,7 +62,35 @@ export class DetailsComponent implements OnInit, OnDestroy {
   public faChild = faChild;
   public faPeopleGroup = faPeopleGroup;
 
-  constructor(public route: ActivatedRoute) { }
+
+  profileForm = this.fb.group({
+    firstName: ['', Validators.required],
+    lastName: [''],
+    address: this.fb.group({
+      street: [''],
+      city: [''],
+      state: [''],
+      zip: ['']
+    })
+  });
+
+  constructor(public route: ActivatedRoute, private fb: FormBuilder) { }
+
+  updateProfile() {
+    this.profileForm.patchValue({
+      firstName: 'Nancy',
+      address: {
+        street: '123 Drew Street'
+      }
+    });
+  }
+
+  onSubmit() {
+    // TODO: Use EventEmitter with form value
+    console.warn(this.profileForm.value);
+  }
+
+  
 
   ngOnInit(): void {
     this.registrationChoice = this.route.params.subscribe(params => {
