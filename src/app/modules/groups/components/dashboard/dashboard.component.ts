@@ -6,10 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
+  public model: any;
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor() { 
+    this.model = {title: "Velociraptors", desc: "Geeks that can play!"};
   }
+
+  ngOnInit(): void { }
 
 }

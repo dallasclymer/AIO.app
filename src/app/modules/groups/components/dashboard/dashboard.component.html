@@ -1,9 +1,14 @@
 <div class="row">
     <div class="col-auto">
-        <app-card data="{'Velociraptors', 'Geeks that can play!'}"></app-card>
+        <!-- <app-card title="test" desc="test" [avatar]="false"></app-card>
+        <app-card title="test" desc="test" [avatar]="true"></app-card> -->
+        <app-card [title]="model.title" [desc]="model.desc" [avatar]="true"></app-card>
     </div>
 
     <div class="col-9">
+
+        <pre>{{ model | json}}</pre>
+
         <app-content-tabs [group]="'Velociraptors'"></app-content-tabs>
     </div>
 </div>

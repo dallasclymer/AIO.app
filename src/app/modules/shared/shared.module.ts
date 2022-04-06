@@ -2,10 +2,12 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { AppRoutingModule } from '../../app-routing.module';
 
 import { AvatarModule } from 'ngx-avatar';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
 
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { 
   CardComponent,
@@ -13,9 +15,6 @@ import {
   TeamBannerComponent,
   ContentTabsComponent
 } from './components/index';
-
-
-
 
 @NgModule({
   declarations: [
@@ -28,10 +27,13 @@ import {
     CommonModule,
     HttpClientModule,
     ReactiveFormsModule,
+    FontAwesomeModule,
     NgbModule,
+    AppRoutingModule,
     AvatarModule
   ],
   exports: [
+    FontAwesomeModule,
     TableComponent,
     CardComponent,
     ContentTabsComponent,
@@ -39,4 +41,6 @@ import {
   ]
 
 })
-export class SharedModule { }
+export class SharedModule { 
+
+}

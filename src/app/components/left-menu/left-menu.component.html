@@ -1,17 +1,24 @@
 <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
     <div class="position-sticky pt-3">
+
       <ul class="nav flex-column">
         <li class="nav-item">
+          <a class="nav-link" [routerLinkActive]="['active']" aria-current="page" routerLink="/home">
+            Home
+          </a>
+        </li>
+
+        <!-- <li class="nav-item">
           <a class="nav-link" [routerLinkActive]="['active']" aria-current="page" routerLink="/register">
             Registration Forms
           </a>
-        </li>
-        <li class="nav-item">
+        </li>-->
+        <!-- <li class="nav-item">
           <a class="nav-link" [routerLinkActive]="['active']" aria-current="page" routerLink="/my-group">
             My Group
           </a>
-        </li>
-        <li class="nav-item">
+        </li> -->
+        <!--<li class="nav-item">
           <a class="nav-link" [routerLinkActive]="['active']" routerLink="/upcoming-activities">
             Activities
           </a>
@@ -26,12 +33,6 @@
             Billing
           </a>
         </li>
-      </ul>
-
-      <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-        <span>Administration</span>
-      </h6>
-      <ul class="nav flex-column mb-2">
         <li class="nav-item">
           <a class="nav-link" [routerLinkActive]="['active']" routerLink="/manage/spaces">
             Event Spaces
@@ -46,8 +47,52 @@
           <a class="nav-link" [routerLinkActive]="['active']" routerLink="manage/members">
             Members
           </a>
+        </li> -->
+      </ul>
+
+      <ul class="nav flex-column" *ngIf="authService.isLoggedIn">
+
+        <li class="nav-item">
+          <a class="nav-link" [routerLinkActive]="['active']" aria-current="page" routerLink="/register">
+            Register
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLinkActive]="['active']" aria-current="page" routerLink="/drop-ins">
+            Drop-In Events
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLinkActive]="['active']" aria-current="page" routerLink="/leagues">
+            Leagues
+          </a>
         </li>
       </ul>
+      
+
+      <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+        <span>Account</span>
+      </h6>
+
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <a *ngIf="!authService.isLoggedIn" class="nav-link" [routerLinkActive]="['active']" routerLink="/sign-in">Sign in</a>
+          <a *ngIf="authService.isLoggedIn" class="nav-link" (click)="authService.SignOut()">Sign out</a>
+        </li>
+
+        <li class="nav-item" *ngIf="!authService.isLoggedIn">
+          <a class="nav-link" [routerLinkActive]="['active']" routerLink="/register-user">
+            Register
+          </a>
+        </li>
+
+        <li class="nav-item" *ngIf="!authService.isLoggedIn">
+          <a class="nav-link" [routerLinkActive]="['active']" routerLink="/forgot-password">
+            Forgot Password
+          </a>
+        </li>
+      </ul>
+
     </div>
 
   </nav>

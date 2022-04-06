@@ -1,7 +1,49 @@
-<div class="card bg-dark text-light" style="width: 250px;">
-    <ngx-avatar [round]="false" cornerRadius="3" class="card-img-top" size="248" name="{{title}}"></ngx-avatar>
-    <div class="card-body">
-      <h5 class="card-title">{{ title }}</h5>
-      <h6 class="card-subtitle mb-2 text-muted">{{ desc }}</h6>
-    </div>
+<!-- <div class="col d-flex flex-column align-items-center bg-dark text-light border py-5">
+  <h2>Programs</h2>
+  <fa-icon [icon]="faClipboard" size="4x" class="text-warning py-3"></fa-icon>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean lacus ligula, tempor imperdiet nisl a, scelerisque dapibus mi. Quisque congue.</p>
+  <a routerLink="/" class="btn btn-outline-warning">
+    Register
+  </a>
+</div> -->
+
+<div class="card col d-flex flex-column align-items-center m-2" [ngClass]="[backgroundColor || 'bg-light', textColor || 'text-secondary']">
+
+  <ngx-avatar *ngIf="avatar" [round]="false" cornerRadius="3" class="d-flex justify-content-center py-3" size="200" name="{{title}}" [round]="true"></ngx-avatar>
+  <img *ngIf="img" class="card-img-top" src={{img}} alt="Card image cap">
+  <!-- <fa-icon [icon]="icon" size="4x" class="text-warning py-3"></fa-icon> -->
+
+  <div class="card-body">
+    <h5 *ngIf="title" class="card-title">{{ title }}</h5>
+    <h6 *ngIf="desc" class="card-subtitle mb-2">{{ desc }}</h6>
+    <a *ngIf="btnText && btnRoute" [routerLink]="btnRoute" class="btn" [ngClass]="[buttonColor || 'btn-primary']">{{ btnText}}</a>
   </div>
+</div>
+
+<pre>
+  {{ title | json}}
+  {{ desc | json}}
+  {{ img | json}}
+  {{ avatar | json}}
+  {{ faIcon | json}}
+  {{ iconClass | json}}
+  {{ btnText | json}}
+  {{ btnRoute | json}}
+  {{ btnClass | json}}
+  {{ icon | json}}
+  {{ bgClass | json}}
+  {{ textClass | json}}
+  
+</pre>
+<!-- <div class="card" [ngClass]="[backgroundColor || 'bg-light', textColor || 'text-secondary']" style="width: 250px;">
+
+  <ngx-avatar *ngIf="avatar" [round]="false" cornerRadius="3" class="card-img-top" size="248" name="{{title}}"></ngx-avatar>
+  <img *ngIf="img" class="card-img-top" src={{img}} alt="Card image cap">
+  <fa-icon [icon]="icon" size="4x" class="text-warning py-3"></fa-icon>
+
+  <div class="card-body">
+    <h5 *ngIf="title" class="card-title">{{ title }}</h5>
+    <h6 *ngIf="desc" class="card-subtitle mb-2">{{ desc }}</h6>
+    <a *ngIf="btnText && btnRoute" [routerLink]="btnRoute" class="btn" [ngClass]="[buttonColor || 'btn-primary']">{{ btnText}}</a>
+  </div>
+</div> -->

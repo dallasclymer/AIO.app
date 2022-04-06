@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../../app/shared/services/auth.service';
 
 @Component({
   selector: 'app-left-menu',
@@ -7,9 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LeftMenuComponent implements OnInit {
 
-  constructor() { }
+  constructor(public authService: AuthService) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
 }
