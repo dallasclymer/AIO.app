@@ -1,0 +1,41 @@
+<div class="container pb-4">
+    <div class="row row-cols-2 row-cols-md-4 bg-dark text-white">
+        <div class="col border border-light">1</div>
+        <div class="col border border-light">2</div>
+        <div class="col border border-light">3</div>
+        <div class="col border border-light">4</div>
+        <div class="col border border-light">5</div>
+    </div>
+</div>
+
+<pre class="border col-6">{{ list | json}}</pre>
+
+<div class="container pb-4">
+    <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 bg-dark text-white">
+        <!-- <div class="col border border-light"></div> -->
+        <app-card *ngFor="let item of list" [title]="item?.name" [desc]="item?.desc" [img]="item?.image" btnText="View" btnRoute="/program/{{item.programId}}"></app-card>
+    </div>
+</div>
+
+
+
+
+
+<!-- <div class="row g-0 row-cols-1 row-cols-lg-3"> -->
+
+<!-- <div class="filters">
+    <div class="location-filter">
+        <label for="locationSearch" class="">Location: </label>
+        <input id="locationSearch" class="form-control" type="text" #locationSearch />
+    </div>
+    <div class="activity-filter">
+        <label for="activitySearch" class="">Activity: </label>
+        <input id="activitySearch" class="form-control" type="text" #activitySearch />
+    </div>
+</div> -->
+
+<!-- <div class="program-list-container"> -->
+    <!-- <app-card *ngFor="let item of list" [title]="item?.name" [desc]="item?.desc" [img]="item?.image" btnText="View" btnRoute="/program/{{item.programId}}"></app-card>    -->
+<!-- </div> -->
+
+<!-- </div> -->

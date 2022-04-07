@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule, Routes } from "@angular/router";
+// import { RouterModule, Routes } from "@angular/router";
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
@@ -11,17 +11,17 @@ import {
   DetailsComponent
 } from './components/index'
 
-const routes: Routes = [
-  {
-    path: "",
-    pathMatch: "full",
-    component: LandingComponent,
-  },
-  {
-    path: ":registrationChoice",
-    component: DetailsComponent,
-  },
-];
+// const routes: Routes = [
+//   {
+//     path: "",
+//     pathMatch: "full",
+//     component: LandingComponent,
+//   },
+//   {
+//     path: ":registrationChoice",
+//     component: DetailsComponent,
+//   },
+// ];
 
 @NgModule({
   declarations: [
@@ -33,7 +33,7 @@ const routes: Routes = [
     ReactiveFormsModule,
     NgbModule,
     FontAwesomeModule,
-    RouterModule.forChild(routes),
+    // RouterModule.forChild(routes),
   ]
 })
 export class RegisterModule { }

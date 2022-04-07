@@ -7,7 +7,8 @@
   </a>
 </div> -->
 
-<div class="card col d-flex flex-column align-items-center m-2" [ngClass]="[backgroundColor || 'bg-light', textColor || 'text-secondary']">
+<!-- card col d-flex flex-column align-items-center m-2" -->
+<div class="card" [ngClass]="[backgroundColor || 'bg-light', textColor || 'text-secondary']">
 
   <ngx-avatar *ngIf="avatar" [round]="false" cornerRadius="3" class="d-flex justify-content-center py-3" size="200" name="{{title}}" [round]="true"></ngx-avatar>
   <img *ngIf="img" class="card-img-top" src={{img}} alt="Card image cap">
@@ -20,7 +21,7 @@
   </div>
 </div>
 
-<pre>
+<!-- <pre>
   {{ title | json}}
   {{ desc | json}}
   {{ img | json}}
@@ -34,7 +35,7 @@
   {{ bgClass | json}}
   {{ textClass | json}}
   
-</pre>
+</pre> -->
 <!-- <div class="card" [ngClass]="[backgroundColor || 'bg-light', textColor || 'text-secondary']" style="width: 250px;">
 
   <ngx-avatar *ngIf="avatar" [round]="false" cornerRadius="3" class="card-img-top" size="248" name="{{title}}"></ngx-avatar>

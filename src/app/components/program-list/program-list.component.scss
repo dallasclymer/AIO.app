@@ -1,0 +1,10 @@
+.filters {
+  display: flex;
+  flex-direction: row;
+
+  .location-filter,
+  .activity-filer {
+    display: flex;
+    flex-direction: column;
+  }
+}

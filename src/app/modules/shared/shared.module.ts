@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from '../../app-routing.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AvatarModule } from 'ngx-avatar';
-import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AuthService } from './services/auth.service';
 
 import { 
   CardComponent,
@@ -33,12 +34,16 @@ import {
     AvatarModule
   ],
   exports: [
+    // AppRoutingModule,
     FontAwesomeModule,
+    HttpClientModule,
+    NgbModule,
     TableComponent,
     CardComponent,
     ContentTabsComponent,
     TeamBannerComponent
-  ]
+  ],
+  providers: [AuthService]
 
 })
 export class SharedModule { 
