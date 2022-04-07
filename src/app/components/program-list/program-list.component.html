@@ -1,21 +1,56 @@
-<div class="container pb-4">
-    <div class="row row-cols-2 row-cols-md-4 bg-dark text-white">
-        <div class="col border border-light">1</div>
-        <div class="col border border-light">2</div>
-        <div class="col border border-light">3</div>
-        <div class="col border border-light">4</div>
-        <div class="col border border-light">5</div>
+<!-- <div class="filters">
+    <div class="location-filter">
+        <label for="locationSearch" class="">Location: </label>
+        <input id="locationSearch" class="form-control" type="text" #locationSearch />
+    </div>
+    <div class="activity-filter">
+        <label for="activitySearch" class="">Activity: </label>
+        <input id="activitySearch" class="form-control" type="text" #activitySearch />
+    </div>
+</div> -->
+
+<div class="container-fluid gx-0 pb-4">
+
+    <!-- <form>
+        <label for="typeahead-basic">Search for a state:</label>
+        <input id="typeahead-basic" type="text" class="form-control" (ngModel)="model" [ngbTypeahead]="search"/>
+    </form> -->
+
+
+    <div class="btn-toolbar mb-2 mb-md-0">
+
+        <div class="d-inline-block" ngbDropdown #locationFilter="ngbDropdown">
+            <button type="button" class="btn btn-dark me-2" id="locationFilterDropdown" ngbDropdownAnchor
+                (focus)="locationFilter.open()">Location</button>
+            <div ngbDropdownMenu aria-labelledby="locationFilterDropdown">
+                <button ngbDropdownItem *ngFor="let location of programLocationOptions">{{location}}</button>
+            </div>
+        </div>
+        <div class="d-inline-block" ngbDropdown #activityFilter="ngbDropdown">
+            <button type="button" class="btn btn-dark me-2" id="activityFilterDropdown" ngbDropdownAnchor
+                (focus)="activityFilter.open()">Activity</button>
+            <div ngbDropdownMenu aria-labelledby="activityFilterDropdown">
+                <button ngbDropdownItem *ngFor="let activity of programActivityOptions">{{activity}}</button>
+            </div>
+        </div>
+
+    </div>
+    <pre>{{ programLocationOptions | json}}</pre>
+    <pre>{{ programActivityOptions | json}}</pre>
+
+</div>
+
+
+<div class="container-fluid gx-0 pb-4">
+    <div class="row gy-4 row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-3">
+        <app-card *ngFor="let item of list" [title]="item?.name" [desc]="item?.desc" [img]="item?.image"
+            themeClass="dark" btnText="View" btnRoute="/program/{{item.programId}}" btnClass="warning"></app-card>
     </div>
 </div>
 
 <pre class="border col-6">{{ list | json}}</pre>
 
-<div class="container pb-4">
-    <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 bg-dark text-white">
-        <!-- <div class="col border border-light"></div> -->
-        <app-card *ngFor="let item of list" [title]="item?.name" [desc]="item?.desc" [img]="item?.image" btnText="View" btnRoute="/program/{{item.programId}}"></app-card>
-    </div>
-</div>
+
 
 
 
@@ -35,7 +70,7 @@
 </div> -->
 
 <!-- <div class="program-list-container"> -->
-    <!-- <app-card *ngFor="let item of list" [title]="item?.name" [desc]="item?.desc" [img]="item?.image" btnText="View" btnRoute="/program/{{item.programId}}"></app-card>    -->
+<!-- <app-card *ngFor="let item of list" [title]="item?.name" [desc]="item?.desc" [img]="item?.image" btnText="View" btnRoute="/program/{{item.programId}}"></app-card>    -->
 <!-- </div> -->
 
 <!-- </div> -->

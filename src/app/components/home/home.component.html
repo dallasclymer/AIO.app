@@ -1,118 +1,16 @@
-<!-- <div class="row g-0 row-cols-1 row-cols-lg-3">
-
-    <div class="col d-flex flex-column align-items-center bg-dark text-light border py-5">
-        <h2>Programs</h2>
-        <fa-icon [icon]="faClipboard" size="4x" class="text-warning py-3"></fa-icon>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean lacus ligula, tempor imperdiet nisl a, scelerisque dapibus mi. Quisque congue.</p>
-        <a routerLink="/" class="btn btn-outline-warning">
-          Register
-        </a>
-    </div>
-
-    <div class="col d-flex flex-column align-items-center bg-dark text-light border py-5">
-        <h2>Leagues</h2>
-        <fa-icon [icon]="faMedal" size="4x" class="text-primary py-3"></fa-icon>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce maximus tellus id nunc accumsan accumsan.</p>
-        <a routerLink="/" class="btn btn-outline-primary">
-          Register
-        </a>
-    </div>
-
-    <div class="col d-flex flex-column align-items-center bg-dark text-light border py-5">
-      <h2>Calendar</h2>
-      <fa-icon [icon]="faCalendarDays" size="4x" class="text-success py-3"></fa-icon>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed congue non leo nec dictum. Phasellus mauris eros, rutrum sit.</p>
-      <a routerLink="/" class="btn btn-outline-success">
-        Register
-      </a>
+<div class="container-fluid gx-0 pb-4">
+  <div class="row gy-4 row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-3">
+    <app-card title="Programs" desc="Looking for a something do? We have many different programs for you and your family." themeClass="dark" btnText="Register for a program" btnRoute="/" btnClass="warning"></app-card>
+    <app-card title="Leagues" desc="Want to build up skill and challenge others? Check out our leagues." themeClass="dark" btnText="Join a league" btnRoute="/" btnClass="primary"></app-card>
+    <app-card title="Calendar" desc="Looking for the next public skate or a game schedule?" themeClass="dark" btnText="See upcoming events" btnRoute="/" btnClass="success"></app-card>
   </div>
-  </div> -->
+</div>
 
-
-  <!-- <div class="d-flex flex-row h-100 w-100 justify-content-between"> -->
-    <div class="row g-0 row-cols-1 row-cols-lg-3">
-    <app-card 
-    title="Programs"
-    desc="View programs for you and your family"
-    faIcon="faClipboard"
-    btnText="View Programs"
-    btnRoute="/"
-    btnClass="warning"
-    themeClass="dark"
-    ></app-card>
-
-    <app-card 
-    title="Leagues"
-    desc="Join a league"
-    faIcon="faMedal"
-    btnText="Browse our Leagues"
-    btnRoute="/"
-    btnClass="primary"
-    themeClass="dark"
-    ></app-card>
-
-    <app-card 
-    title="Calendar"
-    desc="See what's on our schedule"
-    faIcon="faCalendarDays"
-    btnText="View up-coming events"
-    btnRoute="/upcoming-activities"
-    btnClass="success"
-    themeClass="dark"
-    ></app-card>
-
-
-    <!-- <app-card 
-    title="HIJ"
-    desc="...efhijklm..."
-    btnText="test"
-    btnRoute="/"
-    themeClass="dark"
-    ></app-card>
-
-
-    <app-card 
-    title="XYZ"
-    desc="...qrstuvwxyz"
-    btnText="test"
-    btnRoute="/"
-    btnClass="warning"
-    themeClass="dark"
-    ></app-card> -->
-
-
-
-
-
-<!--     
-    <app-card 
-    title="Programs"
-    desc="test"
-    btnText="test"
-    btnRoute="/"
-    ></app-card>
-    
-    <app-card 
-    title="Leagues"
-    desc="Current & Upcoming leages"
-    img=""
-    faIcon="faCalendarDays"
-    btnText="See Schedule"
-    btnRoute="/calendar"
-    colorClass="danger"
-    ></app-card>
-
-
-    <app-card
-    title="Calendar"
-    desc="test"
-    faIcon="faCalendarDays"
-    btnText="See Schedule"
-    btnRoute="/calendar"
-    colorClass="danger"
-    ></app-card> -->
-
-    <app-card *ngIf="authService.isLoggedIn" title="user name" desc="info" [avatar]="true" ></app-card>
+<div class="container-fluid gx-0 pb-4">
+  <div class="row gy-4 row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-3">
+    <app-card *ngIf="authService.userData as user" [title]="user.displayName || 'Welcome User!'" [desc]="user.email" [avatar]="true" ></app-card>
     <app-content-tabs *ngIf="authService.isLoggedIn" class="flex-fill pt-2" [group]="'Velociraptors'"></app-content-tabs>
-    
   </div>
+</div>
+
+<pre>{{ authService.userData | json}}</pre>

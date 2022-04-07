@@ -86,9 +86,7 @@ export class AuthService {
   // Sign in with Google
   async GoogleAuth() {
     return this.AuthLogin(new auth.GoogleAuthProvider()).then((res: any) => {
-      console.warn(res);
       if (res) {
-        console.warn(res);
         this.router.navigate(['home']);
       }
     });

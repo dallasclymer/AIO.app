@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import {faClipboard, faMedal, IconDefinition, faPerson } from '@fortawesome/free-solid-svg-icons';
+// import {faClipboard, faMedal, IconDefinition, faPerson } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-card',
@@ -11,7 +11,7 @@ export class CardComponent {
   @Input() desc: any;
   @Input() img: any;
   @Input() avatar: boolean;
-  @Input() faIcon: any;
+  // @Input() faIcon: any;
   @Input() btnText: any;
   @Input() btnRoute: any;
 
@@ -27,14 +27,12 @@ export class CardComponent {
   public backgroundColor: string;
   public textColor: string;
   public buttonColor: string;
-  public icon: IconDefinition;
+  // public icon: IconDefinition;
   
   constructor() { }
 
   public ngOnInit(): void {
-    this.icon = this.faIcon;
-
-
+    // this.icon = this.faIcon;
     if (this.img === "") {
       console.warn("SRC was left blank on card component, ")
       this.img = "/assets/images/orange-placeholder-image.svg" // Created this for placeholder demo purposes

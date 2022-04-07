@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+// import {Observable, OperatorFunction } from 'rxjs';
+// import {debounceTime, distinctUntilChanged, map} from 'rxjs/operators';
+
+// const test = [];
 
 @Component({
   selector: 'app-program-list',
@@ -6,7 +10,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./program-list.component.scss']
 })
 export class ProgramListComponent implements OnInit {
-  public list: any;
+  public list;
+  public model: any;
+  public programActivityOptions: any;
+  public programLocationOptions: any;
 
   constructor() { 
     this.list = [
@@ -34,15 +41,80 @@ export class ProgramListComponent implements OnInit {
         "location": "Ohio Rink",
         "locationId": "4f8dab4c-96d8-4ddf-9d80-8b70501f84dd",
       },
+      {
+        "programId": "",
+        "name": "Hockey Classes and Lessons",
+        "desc": "Group skating and hockey lessons at XYZ Sports Facility! ",
+        "image": "",
+        "location": "Ohio Rink",
+        "locationId": "4f8dab4c-96d8-4ddf-9d80-8b70501f84dd",
+      },
+      {
+        "programId": "",
+        "name": "Learn to Play",
+        "desc": "Welcome to the XYZ Learn to Play program.",
+        "image": "",
+        "location": "Ohio Rink",
+        "locationId": "4f8dab4c-96d8-4ddf-9d80-8b70501f84dd",
+      },
+      {
+        "programId": "",
+        "name": "Learn to Skate",
+        "desc": "Welcome to the XYZ Skating Academy's Learn to Skate Program.",
+        "image": "",
+        "location": "Ohio Rink",
+        "locationId": "4f8dab4c-96d8-4ddf-9d80-8b70501f84dd",
+      },
+      {
+        "programId": "",
+        "name": "Public Skate",
+        "desc": "Welcome to the XYZ Sports Facility Public Skate!",
+        "image": "",
+        "location": "Ohio Rink",
+        "locationId": "4f8dab4c-96d8-4ddf-9d80-8b70501f84dd",
+      },
+      {
+        "programId": "",
+        "name": "Stick & Puck",
+        "desc": "Stick & Puck at XYZ!",
+        "image": "",
+        "location": "Ohio Rink",
+        "locationId": "4f8dab4c-96d8-4ddf-9d80-8b70501f84dd",
+      },
+      {
+        "programId": "",
+        "name": "Tot Play Hour",
+        "desc": "Come join us for some fun on the ice with your little one! There will be balls, seals, and snow out for open play on the ice. ",
+        "image": "",
+        "location": "Ohio Rink",
+        "locationId": "4f8dab4c-96d8-4ddf-9d80-8b70501f84dd",
+      },
+      {
+        "programId": "",
+        "name": "Youth Hockey",
+        "desc": "Welcome to XYZ Youth Hockey. ",
+        "image": "",
+        "location": "Ohio Rink",
+        "locationId": "4f8dab4c-96d8-4ddf-9d80-8b70501f84dd",
+      }
     ]
-
-
-
 
   }
 
+  // this.test = map(term => term);
+
+  // search: OperatorFunction<string, readonly string[]> = (text$: Observable<string>) =>
+  //   text$.pipe(
+  //     debounceTime(200),
+  //     distinctUntilChanged(),
+  //     map(term => term.length < 2 ? []: this.list.filter(v => v.name.toLowerCase().indexOf(term.toLowerCase()) > -1).slice(0, 10))
+  //   )
+
   ngOnInit(): void {
-    
+    this.programActivityOptions = this.list.map(term => term.name);
+    this.programLocationOptions = this.list.map(term => term.location);
+    this.programLocationOptions = [...new Set(this.programLocationOptions)]
+
   }
 
 }
