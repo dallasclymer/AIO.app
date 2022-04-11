@@ -8,6 +8,7 @@ import { VerifyEmailComponent } from './components/verify-email/verify-email.com
 
 import { HomeComponent } from './components/home/home.component';
 import { ProgramListComponent } from './components/program-list/program-list.component';
+import { ProgramDetailsComponent } from './components/program-details/program-details.component';
 
 import { AuthGuard } from './modules/shared/guards/auth.guard';
 
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'verify-email-address', component: VerifyEmailComponent },
   { path: 'home', component: HomeComponent },
   { path: "programs", component: ProgramListComponent },
+  { path: "programs/:id", component: ProgramDetailsComponent },
   {
     path: "register",
     loadChildren: () => import('./modules/register/register.module').then(m => m.RegisterModule),

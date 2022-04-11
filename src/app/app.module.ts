@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { ReactiveFormsModule } from '@angular/forms';
 
 // Firebase
 import { AngularFireModule } from "@angular/fire/compat";
@@ -29,6 +30,9 @@ import { VerifyEmailComponent } from './components/verify-email/verify-email.com
 
 import { HomeComponent } from './components/home/home.component';
 import { ProgramListComponent } from './components/program-list/program-list.component';
+import { ProgramDetailsComponent } from './components/program-details/program-details.component';
+import { ProgramSeriesComponent } from './components/program-series/program-series.component';
+import { ProgramFilterComponent } from './components/program-filter/program-filter.component';
 
 import { AuthService } from './modules/shared/services/auth.service';
 import { SharedModule } from './modules/shared/shared.module';
@@ -43,7 +47,10 @@ import { SharedModule } from './modules/shared/shared.module';
     ForgotPasswordComponent,
     VerifyEmailComponent,
     HomeComponent,
-    ProgramListComponent
+    ProgramListComponent,
+    ProgramDetailsComponent,
+    ProgramSeriesComponent,
+    ProgramFilterComponent
   ],
   imports: [
     BrowserModule,
@@ -51,6 +58,7 @@ import { SharedModule } from './modules/shared/shared.module';
       enabled: environment.production,
       registrationStrategy: 'registerWhenStable:30000'
     }),
+    ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     AngularFirestoreModule,
