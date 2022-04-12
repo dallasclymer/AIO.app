@@ -1,8 +1,4 @@
-<!-- d-flex flex-column justify-content-between -->
-
-<!-- card col d-flex flex-column align-items-center m-2" -->
-
-<div class="card w-100" [ngClass]="[backgroundColor || 'bg-light', textColor || 'text-secondary']">
+<!-- <div class="card w-100 rounded-0" [ngClass]="[backgroundColor || 'bg-light', borderColor || 'border-secondary', textColor || 'text-dark']">
   <div *ngIf="avatar || img" class="card-header">
     <ngx-avatar *ngIf="avatar" [round]="false" cornerRadius="3" class="d-flex justify-content-center py-3" size="200" name="{{title}}" [round]="true"></ngx-avatar>
     <img *ngIf="img" class="card-img-top" src={{img}} alt="Card image cap">
@@ -12,23 +8,23 @@
     <h5 *ngIf="title" class="card-title">{{ title }}</h5>
     <p *ngIf="desc" class="card-subtitle mb-2">{{ desc }}</p>
   </div>
-  <div *ngIf="btnText && btnRoute" class="card-footer text-center">
-    <a [routerLink]="btnRoute" class="btn" [ngClass]="[buttonColor || 'btn-primary']">{{ btnText}}</a>
+  <div *ngIf="btnText && btnRoute" class="card-footer border-top-0 text-center" [ngClass]="[footerColor]">
+    <a [routerLink]="btnRoute" class="btn" [ngClass]="[buttonColor]">{{ btnText}}</a>
   </div>
-</div>
+</div> -->
 
-
-
-<!-- <div class="card" [ngClass]="[backgroundColor || 'bg-light', textColor || 'text-secondary']" style="width: 250px;">
-  <ngx-avatar *ngIf="avatar" [round]="false" cornerRadius="3" class="card-img-top" size="248" name="{{title}}"></ngx-avatar>
-  <img *ngIf="img" class="card-img-top" src={{img}} alt="Card image cap">
+<div class="card w-100 rounded-0" [ngClass]="[borderColor]">
+  
+  <div *ngIf="avatar || img" class="card-header">
+    <ngx-avatar *ngIf="avatar" [round]="false" cornerRadius="3" class="d-flex justify-content-center py-3" size="200" name="{{title}}" [round]="true"></ngx-avatar>
+    <img *ngIf="img" class="card-img-top" src={{img}} alt="Card image cap">
+  </div>
 
   <div class="card-body">
     <h5 *ngIf="title" class="card-title">{{ title }}</h5>
     <p *ngIf="desc" class="card-subtitle mb-2">{{ desc }}</p>
   </div>
-
-  <div class="card-footer">
-    <a *ngIf="btnText && btnRoute" [routerLink]="btnRoute" class="btn" [ngClass]="[buttonColor || 'btn-primary']">{{ btnText}}</a>
+  <div *ngIf="btnText && btnRoute" class="card-footer border-top-0 rounded-0 text-center bg-gradient" [ngClass]="[footerColor]">
+    <a [routerLink]="btnRoute" class="btn" [ngClass]="[buttonColor]">{{ btnText}}</a>
   </div>
-</div> -->
+</div>

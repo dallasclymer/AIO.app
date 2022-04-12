@@ -4,6 +4,21 @@ import { Component, OnInit } from '@angular/core';
 
 // const test = [];
 
+interface Locations {
+  options: Object;
+  selected: String;
+}
+
+interface Activities {
+  options: Object;
+  selected: String;
+}
+
+interface Filters {
+  locations: Locations;
+  activities: Activities;
+}
+
 @Component({
   selector: 'app-program-list',
   templateUrl: './program-list.component.html',
@@ -11,6 +26,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProgramListComponent implements OnInit {
   public list;
+  public filteredList;
+
+  public filters: Filters;
+
   public model: any;
   public programActivityOptions: any;
   public programLocationOptions: any;
@@ -99,6 +118,22 @@ export class ProgramListComponent implements OnInit {
       }
     ]
 
+    // this.filters = {selectedLocation: '', locations: [...new Set (this.list.map(x => x.location))], activity: '', activities: [...new Set (this.list.map(x => x.name))]};
+    // this.filteredList = this.list.filter(x => x.location ? x.location : this.filters.location === x.location);
+    this.filteredList = this.list.filter;
+
+    this.filters = {
+      locations: {
+        options: [...new Set (this.list.map(x => x.location))],
+        selected: ''
+      },
+      activities: {
+        options: [...new Set (this.list.map(x => x.name))],
+        selected: ''
+      }
+    };
+    
+
   }
 
   // this.test = map(term => term);
@@ -113,8 +148,7 @@ export class ProgramListComponent implements OnInit {
   ngOnInit(): void {
     this.programActivityOptions = this.list.map(term => term.name);
     this.programLocationOptions = this.list.map(term => term.location);
-    this.programLocationOptions = [...new Set(this.programLocationOptions)]
-
+    this.programLocationOptions = [...new Set(this.programLocationOptions)];
   }
 
 }

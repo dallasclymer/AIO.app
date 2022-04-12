@@ -1,16 +1,20 @@
-import { Component, Input, Output, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { Component, Input, Output, OnInit} from '@angular/core';
+import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-program-filter',
   templateUrl: './program-filter.component.html',
   styleUrls: ['./program-filter.component.scss']
 })
-export class ProgramFilterComponent {
+export class ProgramFilterComponent implements OnInit {
   @Input() programID: any;
-  @Input() filteredParams: any;
+  @Input() filteredParams: any = {};
+
+  // control: FormControl;
   
-  filterForm = new FormGroup({
+  public filterForm = new FormGroup({
+    activities: new FormControl(''),
+    locations: new FormControl(''),
     activity: new FormControl(''),
     location: new FormControl(''),
     timeOfYear: new FormControl(''),
@@ -25,18 +29,21 @@ export class ProgramFilterComponent {
   //   skillLevel: new FormControl('')
   // });
 
-  onSubmit() {
-    // TODO: Use EventEmitter with form value
-    console.warn(this.filterForm.value);
-  }
 
-  constructor() { }
-
-  public test() {
-    console.warn('test');
+  constructor(private fb: FormBuilder) { 
+    // this.control  = fb.control({value: 'my val', disabled: true});
+    // this.filteredParams['locations']['selected'] = 'test';
+    // this.filterForm.value.location;
   }
 
   ngOnInit(): void {
+    // this.filteredParams['locations']['selected'] = this.filterForm.value.location;
+    // Build filters for filter params input
+    // for (const key in this.filteredParams) {
+    //   console.warn(key)
+    //   console.warn(this.filteredParams[key]);
+    // }
   }
+  
 
 }

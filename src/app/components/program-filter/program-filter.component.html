@@ -1,109 +1,28 @@
 <div class="container-fluid gx-0 pb-4">
+    <pre>{{ filteredParams | json}}</pre>
+    <!-- <ul>
+        <li *ngFor="let filter of filteredParams | keyvalue">
+            {{ filter.key }}
+            <ul>
+                <li *ngFor="let data of filteredParams['' + filter.key + ''] | keyvalue">{{data.key}}
+                    <ul>
+                        <li *ngFor="let option of filteredParams['' + filter.key + ''][''+data.key+'']">{{option}}</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul> -->
 
     <div class="btn-toolbar bg-light p-5">
-
-
-        <!-- <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
-
-            <label for="location">location: </label>
-            <input id="location" type="text" [formControl]="location">
-
-            <p>Complete the form to enable button.</p>
-            <button type="submit" [disabled]="!profileForm.valid">Submit</button>
-        </form> -->
-
         <form [formGroup]="filterForm">
-
-
-            <label for="location">Location: </label>
-            <select class="form-control form-select" name="location" id="location" placeholder="Select" formControlName="location">
-                <option value="" disabled selected hidden>Choose a selection</option>
-                <option value="test">test</option>
-                <option value="test">test</option>
-                <option value="test">test</option>
-            </select>
-
-            <label for="activity">Activity: </label>
-            <select class="form-control form-select" name="activity" id="activity" placeholder="Select" formControlName="activity">
-                <option value="" disabled selected hidden>Choose a selection</option>
-                <option value="test">test</option>
-                <option value="test">test</option>
-                <option value="test">test</option>
-            </select>
-
-            <label for="timeOfYear">Time of Year: </label>
-            <select class="form-control form-select" name="timeOfYear" id="timeOfYear" placeholder="Select" formControlName="timeOfYear">
-                <option value="" disabled selected hidden>Choose a selection</option>
-                <option value="test">test</option>
-                <option value="test">test</option>
-                <option value="test">test</option>
-            </select>
-
-            <label for="gender">Gender: </label>
-            <select class="form-control form-select" name="gender" id="gender" placeholder="Select" formControlName="gender">
-                <option value="" disabled selected hidden>Choose a selection</option>
-                <option value="test">test</option>
-                <option value="test">test</option>
-                <option value="test">test</option>
-            </select>
-
-            <label for="skillLevel">Skill Level: </label>
-            <select class="form-control form-select" name="skillLevel" id="skillLevel" placeholder="Select" formControlName="skillLevel">
-                <option value="" disabled selected hidden>Choose a selection</option>
-                <option value="test">test</option>
-                <option value="test">test</option>
-                <option value="test">test</option>
-            </select>
-
-
-          </form>
-
-
-        <!-- <form class="d-flex form-inline my-2 my-lg-0">
-
-            <div class="d-inline-block" ngbDropdown #locationFilter="ngbDropdown">
-                <button type="button" class="btn btn-dark me-2" id="locationFilterDropdown" ngbDropdownAnchor
-                    (focus)="locationFilter.open()">Location</button>
-                <div ngbDropdownMenu aria-labelledby="locationFilterDropdown">
-                    <button ngbDropdownItem>location</button>
-                </div>
+            <div class="form-group" *ngFor="let filter of filteredParams | keyvalue">
+                <label class="text-capitalize" [for]="filter.key">{{ filter.key }}: </label>
+                <select class="form-control form-select" [name]="filter.key" [id]="filter.key" placeholder="Select" formControlName="{{filter.key}}">
+                    <option value="" disabled selected hidden>Choose a selection</option>
+                    <option *ngFor="let option of filteredParams['' + filter.key + '']['options']" [value]="option">{{option}}</option>
+                </select>
             </div>
-
-            <div class="d-inline-block" ngbDropdown #activityFilter="ngbDropdown">
-                <button type="button" class="btn btn-dark me-2" id="activityFilterDropdown" ngbDropdownAnchor
-                    (focus)="activityFilter.open()">Activity</button>
-                <div ngbDropdownMenu aria-labelledby="activityFilterDropdown">
-                    <button ngbDropdownItem>activity</button>
-                </div>
-            </div>
-
-            <div class="d-inline-block" ngbDropdown #timeOfYearFilter="ngbDropdown">
-                <button type="button" class="btn btn-dark me-2" id="timeOfYearFilterDropdown" ngbDropdownAnchor
-                    (focus)="timeOfYearFilter.open()">Time Of Year</button>
-                <div ngbDropdownMenu aria-labelledby="timeOfYearFilterDropdown">
-                    <button ngbDropdownItem>XYX</button>
-                </div>
-            </div>
-
-            <div class="d-inline-block" ngbDropdown #genderFilter="ngbDropdown">
-                <button type="button" class="btn btn-dark me-2" id="genderFilterDropdown" ngbDropdownAnchor
-                    (focus)="genderFilter.open()">Gender</button>
-                <div ngbDropdownMenu aria-labelledby="genderFilterDropdown">
-                    <button ngbDropdownItem>XYX</button>
-                </div>
-            </div>
-
-            <div class="d-inline-block" ngbDropdown #skillLevelFilter="ngbDropdown">
-                <button type="button" class="btn btn-dark me-2" id="skillLevelFilterDropdown" ngbDropdownAnchor
-                    (focus)="skillLevelFilter.open()">Skill Level</button>
-                <div ngbDropdownMenu aria-labelledby="skillLevelFilterDropdown">
-                    <button ngbDropdownItem>XYX</button>
-                </div>
-            </div>
-
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form> -->
-
+        </form>
     </div>
 
     <pre>{{ filterForm.value | json}}</pre>
