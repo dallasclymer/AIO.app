@@ -9,6 +9,8 @@ import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms'
 export class ProgramFilterComponent implements OnInit {
   @Input() programID: any;
   @Input() filteredParams: any = {};
+  JSONPanelShown: boolean = false;
+  JSONSelection: String;
 
   // control: FormControl;
   
@@ -21,19 +23,23 @@ export class ProgramFilterComponent implements OnInit {
     gender: new FormControl(''),
     skillLevel: new FormControl('')
   });
-  // profileForm = new FormGroup({
-  //   location: new FormControl(''),
-  //   activity: new FormControl(''),
-  //   timeOfYear: new FormControl(''),
-  //   gender: new FormControl(''),
-  //   skillLevel: new FormControl('')
-  // });
 
 
   constructor(private fb: FormBuilder) { 
     // this.control  = fb.control({value: 'my val', disabled: true});
     // this.filteredParams['locations']['selected'] = 'test';
     // this.filterForm.value.location;
+  }
+
+  public seeJSON(selection: String) {
+    let selectionDefined = !!this.JSONSelection;
+    let clickedSameButton = (selection === this.JSONSelection);
+    let clickedDifferentButton = (selection !== this.JSONSelection);
+    let canOpen = !selectionDefined && (!this.JSONPanelShown && !!clickedDifferentButton);
+    let canClose = (!!this.JSONPanelShown && !!clickedSameButton);
+
+    this.JSONPanelShown = !!canOpen || !canClose ? true : false;
+    this.JSONSelection = selection;
   }
 
   ngOnInit(): void {
