@@ -24,7 +24,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 // Application Components
 import { HeaderComponent, LeftMenuComponent } from './components/layout'
 import { SignInComponent, SignUpComponent, ForgotPasswordComponent, VerifyEmailComponent} from './components/auth'
-import { ProgramFilterComponent, ProgramListComponent, ProgramDetailsComponent, ProgramSeriesComponent } from './components/programs'
 import { HomeComponent } from './components/home/home.component';
 import { AuthService } from './modules/shared/services/auth.service';
 import { SharedModule } from './modules/shared/shared.module';
@@ -36,8 +35,11 @@ const routes: Routes = [
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'verify-email-address', component: VerifyEmailComponent },
   { path: 'home', component: HomeComponent },
-  { path: "programs", component: ProgramListComponent, canActivate: [AuthGuard] },
-  { path: "programs/:id", component: ProgramDetailsComponent, canActivate: [AuthGuard] },
+  {
+    path: "programs",
+    loadChildren: () => import('./modules/programs/programs.module').then(m => m.ProgramsModule),
+    canActivate: [AuthGuard] 
+  },
   {
     path: "leagues",
     loadChildren: () => import('./modules/leagues/leagues.module').then(m => m.LeaguesModule),
@@ -54,11 +56,7 @@ const routes: Routes = [
     SignUpComponent,
     ForgotPasswordComponent,
     VerifyEmailComponent,
-    HomeComponent,
-    ProgramListComponent,
-    ProgramDetailsComponent,
-    ProgramSeriesComponent,
-    ProgramFilterComponent
+    HomeComponent
   ],
   imports: [
     BrowserModule,

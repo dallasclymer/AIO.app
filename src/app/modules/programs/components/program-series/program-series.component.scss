@@ -1,5 +1,7 @@
 $krakenprimary: #4f8ba2;
-@import "bootstrap";
+
+@import '/src/variables';
+
 .btn-outlin-kraken {
     @include button-variant($krakenprimary, darken($krakenprimary, 10%), $white, $white, $krakenprimary, $krakenprimary)
 }

@@ -39,7 +39,7 @@
 
 <div class="container-fluid col-10 gx-0 pb-4">
     <div class="row gy-4 row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-3">
-        <app-card *ngFor="let item of list" [title]="item?.name" [desc]="item?.desc" [img]="item?.image" colorClass="black" btnText="View" btnRoute="/programs/{{item.programId}}"></app-card>
+        <app-card *ngFor="let item of list" [title]="item?.name" [desc]="item?.desc" [img]="item?.image" colorClass="primary" btnText="View" btnRoute="/programs/{{item.programId}}"></app-card>
     </div>
 </div>
 
