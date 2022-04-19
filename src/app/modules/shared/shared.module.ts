@@ -12,6 +12,7 @@ import { AuthService } from './services/auth.service';
 
 import { 
   CardComponent,
+  LongCardComponent,
   TableComponent,
   TeamBannerComponent,
   ContentTabsComponent
@@ -23,6 +24,7 @@ import {
     CardComponent,
     ContentTabsComponent,
     TeamBannerComponent,
+    LongCardComponent,
   ],
   imports: [
     CommonModule,
@@ -40,7 +42,8 @@ import {
     TableComponent,
     CardComponent,
     ContentTabsComponent,
-    TeamBannerComponent
+    TeamBannerComponent,
+    LongCardComponent
   ],
   providers: [AuthService]
 

@@ -26,41 +26,9 @@
 
 
 <div class="container-fluid col-10 gx-0 pb-4">
-    <div class="row gy-4 row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-3">
+    <div class="row gy-4 row-cols-1 row-cols-sm-1 row-cols-md-1 row-cols-lg-1">
         
-        <!-- <div class="card w-100 rounded-0">
-            <div class="card-body d-flex flex-row ">
-                <div class="bg-secondary">
-                </div>
-                <div>
-                    <h5 class="card-title">test</h5>
-                    <p class="card-subtitle mb-2">test</p>
-                </div>
-                <div>
-                    <a routerLink="/z" class="btn">test</a>
-                </div>
-            </div>
-          </div> -->
-
-
-        <!-- <div class="series-list">
-            <div class="series-item">
-                <div class="filter-bio">
-                    Morning
-                </div>
-                <div class="item-details">
-                    <div class="series-name">Adult Development Series</div>
-                    <div class="skill-level badge">Hockey - Skill Level - C - Recreational</div>
-                    <div class="series-info">Adult skill development sessions focusing on skating, shooting,</div>
-                    <div class="series-location">Kraken Community Iceplex</div>
-                </div>
-                <div class="item-link">
-                    <button class="btn btn-kraken">test</button>
-                </div>
-            </div>
-        </div> -->
-
-        <div *ngFor="let item of [0,1,2,3,4,5,6,7,8,9]" class="card bg-primary text-light p-0 d-flex flex-row w-100">
+        <!-- <div *ngFor="let item of [0,1,2,3,4,5,6,7,8,9]" class="card bg-primary text-light p-0 d-flex flex-row w-100">
             <div class="card-header col-2 d-flex">
                 <p class="card-text d-flex flex-column flex-fill justify-content-center">
                     <span class="placeholder my-1 col-7"></span>
@@ -82,9 +50,10 @@
             <div class="card-footer d-flex">
                   <a href="#" class="btn btn-outline-light align-self-center">View</a>
               </div>
-          </div>
+          </div> -->
 
-
+          <!-- TODO: Add data @Input & @Output -->
+          <app-long-card *ngFor="let item of [0,1,2,3,4,5,6,7,8,9]"></app-long-card>
 
 
 
