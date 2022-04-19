@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { ReactiveFormsModule } from '@angular/forms';
+import { RouterModule, Routes } from '@angular/router';
+
 
 // Firebase
 import { AngularFireModule } from "@angular/fire/compat";
@@ -12,30 +14,36 @@ import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 
 // App configuration
 import { environment } from '../environments/environment';
-import { AppRoutingModule } from './app-routing.module';
+// import { AppRoutingModule } from './app-routing.module';
+import { AuthGuard } from './modules/shared/guards/auth.guard';
 import { AppComponent } from './app.component';
 
 // Thirdy Party Modules
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-// App Layout
-import { HeaderComponent } from './components/header/header.component';
-import { LeftMenuComponent } from './components/left-menu/left-menu.component';
-
-// Route Components
-import { SignInComponent } from './components/sign-in/sign-in.component';
-import { SignUpComponent } from './components/sign-up/sign-up.component';
-import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
-import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
-
+// Application Components
+import { HeaderComponent, LeftMenuComponent } from './components/layout'
+import { SignInComponent, SignUpComponent, ForgotPasswordComponent, VerifyEmailComponent} from './components/auth'
+import { ProgramFilterComponent, ProgramListComponent, ProgramDetailsComponent, ProgramSeriesComponent } from './components/programs'
 import { HomeComponent } from './components/home/home.component';
-import { ProgramListComponent } from './components/program-list/program-list.component';
-import { ProgramDetailsComponent } from './components/program-details/program-details.component';
-import { ProgramSeriesComponent } from './components/program-series/program-series.component';
-import { ProgramFilterComponent } from './components/program-filter/program-filter.component';
-
 import { AuthService } from './modules/shared/services/auth.service';
 import { SharedModule } from './modules/shared/shared.module';
+
+const routes: Routes = [
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'sign-in', component: SignInComponent },
+  { path: 'register-user', component: SignUpComponent },
+  { path: 'forgot-password', component: ForgotPasswordComponent },
+  { path: 'verify-email-address', component: VerifyEmailComponent },
+  { path: 'home', component: HomeComponent },
+  { path: "programs", component: ProgramListComponent, canActivate: [AuthGuard] },
+  { path: "programs/:id", component: ProgramDetailsComponent, canActivate: [AuthGuard] },
+  {
+    path: "leagues",
+    loadChildren: () => import('./modules/leagues/leagues.module').then(m => m.LeaguesModule),
+    canActivate: [AuthGuard] 
+  }  
+];
 
 @NgModule({
   declarations: [
@@ -64,12 +72,12 @@ import { SharedModule } from './modules/shared/shared.module';
     AngularFirestoreModule,
     AngularFireStorageModule,
     AngularFireDatabaseModule,
+    RouterModule.forRoot(routes),
     NgbModule,
     SharedModule,
-    AppRoutingModule,
     // FontAwesomeModule
   ],
-  exports:[AppRoutingModule],
+  exports:[RouterModule],
   providers: [AuthService],
   bootstrap: [AppComponent]
 })

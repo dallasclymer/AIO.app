@@ -1,0 +1,38 @@
+$krakenprimary: #4f8ba2;
+@import "bootstrap";
+.btn-outlin-kraken {
+    @include button-variant($krakenprimary, darken($krakenprimary, 10%), $white, $white, $krakenprimary, $krakenprimary)
+}
+.btn-kraken {
+    @include button-variant($krakenprimary, darken($krakenprimary, 10%), $white, darken($krakenprimary, 10%), $krakenprimary, $white)
+}
+
+.series-list {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+
+    .series-item {
+        display: flex;
+        border: solid 1px $krakenprimary;
+
+        .filter-bio {
+            background-color: $krakenprimary;
+            display: flex;
+            flex: 1 0 125px;
+            justify-content: center;
+            align-items: center;
+            align-self: stretch;
+        }
+        .item-details {
+            display: flex;
+            flex-direction: column;
+            padding: 1rem;
+
+            .skill-level {
+                background-color: $krakenprimary;
+            }
+        }
+        
+    }
+}

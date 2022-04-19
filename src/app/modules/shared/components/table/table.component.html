@@ -1,31 +1,24 @@
-<form>
-    <div class="mb-3 row">
-      <label for="table-filtering-search" class="col-xs-3 col-sm-auto col-form-label">Full text search:</label>
-      <div class="col-xs-3 col-sm-auto">
-        <input id="table-filtering-search" class="form-control" type="text" [formControl]="filter">
-      </div>
-    </div>
-  </form>
-  
-  <table class="table table-warning table-hover table-striped">
-    <thead>
+<table class="table table-primary table-hover table-striped">
+  <thead>
     <tr>
-      <th scope="col">#</th>
-      <th scope="col">Activity</th>
-      <th scope="col">Date</th>
-      <th scope="col">Time</th>
-      <th scope="col">Space</th>
+      <th scope="col" *ngFor="let header of columnHeaders; index as i">
+        <span *ngIf="!header.hidden">{{ header.name }}</span>
+      </th>
     </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let data of data$ | async; index as i">
-      <th scope="row">{{ i + 1 }}</th>
-      <td>
-        <ngb-highlight [result]="data.activity" [term]="filter.value"></ngb-highlight>
+  </thead>
+  <tbody>
+
+    <tr *ngFor="let row of data; index as rowindex">
+      <td *ngFor="let cell of row | keyvalue; index as colindex">
+        <a *ngIf="columnHeaders[colindex].linkBy" [routerLink]="row.id">
+          {{ data[rowindex]['' + columnHeaders[colindex]?.property + ''] }}
+        </a>
+        <span *ngIf="!columnHeaders[colindex].linkBy && !columnHeaders[colindex].hidden">{{ data[rowindex]['' +
+          columnHeaders[colindex]?.property + ''] }}</span>
       </td>
-      <td><ngb-highlight [result]="data.date" [term]="filter.value"></ngb-highlight></td>
-      <td><ngb-highlight [result]="data.time" [term]="filter.value"></ngb-highlight></td>
-      <td><ngb-highlight [result]="data.space" [term]="filter.value"></ngb-highlight></td>
     </tr>
-    </tbody>
-  </table>
+  </tbody>
+</table>
+
+<!-- <pre>{{ columnHeaders | json }}</pre>
+<pre>{{data | json}}</pre> -->

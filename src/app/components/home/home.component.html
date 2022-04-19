@@ -1,16 +1,24 @@
-<div class="container-fluid gx-0 pb-4">
-  <div class="row gy-4 row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-3">
-    <app-card title="Programs" desc="Looking for a something do? We have many different programs for you and your family." colorClass="primary" btnText="Register for a program" btnRoute="/"></app-card>
-    <app-card title="Leagues" desc="Want to build up skill and challenge others? Check out our leagues." btnText="Join a league" colorClass="info" btnRoute="/"></app-card>
-    <app-card title="Calendar" desc="Looking for the next public skate or a game schedule?" btnText="See upcoming events" colorClass="success" btnRoute="/"></app-card>
+<div class="container-fluid col-10 gx-0 pb-4">
+  <div class="row gy-4 row-cols-1 row-cols-sm-1 row-cols-md-1 row-cols-lg-2" *ngIf="!authService.isLoggedIn">
+    <app-card title="Recreation Management"
+      desc="Check out the all programs this facility offers and join a program event or series that fits your skill level"
+      colorClass="primary"></app-card>
   </div>
 </div>
 
-<div class="container-fluid gx-0 pb-4">
-  <div class="row gy-4 row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-3">
-    <app-card *ngIf="authService.userData as user" [title]="user.displayName || 'Welcome User!'" [desc]="user.email" [avatar]="true" ></app-card>
-    <app-content-tabs *ngIf="authService.isLoggedIn" class="flex-fill pt-2" [group]="'Velociraptors'"></app-content-tabs>
+<div class="container-fluid col-10 gx-0 pb-4" *ngIf="authService.isLoggedIn">
+  <div class="row gy-4 row-cols-1 row-cols-sm-1 row-cols-md-1 row-cols-lg-2">
+    <app-card *ngIf="authService.userData as user" [title]="user.displayName || 'Welcome User!'" [desc]="user.email" [avatar]="true"></app-card>
+    <!-- <app-content-tabs *ngIf="authService.isLoggedIn" class="flex-fill pt-2" [group]="'Velociraptors'"></app-content-tabs> -->
+
+    <div class="row gy-4 row-cols-1 row-cols-sm-2 m-0 p-0">
+      <app-card title="Programs" desc="Looking for a something do? We have many different programs for you and your family." colorClass="primary" btnText="Register for a program" btnRoute="/programs"></app-card>
+      <app-card title="Leagues" desc="Want to build up skill and challenge others? Check out our leagues." btnText="Join a league" colorClass="info" btnRoute="/leagues"></app-card>
+      <app-card title="Calendar" desc="Looking for the next public skate or a game schedule?" btnText="See upcoming events" colorClass="success" btnRoute="/"></app-card>
+    </div>
+
   </div>
+
 </div>
 
-<pre>{{ authService.userData | json}}</pre>
+<!-- <pre>{{ authService.userData | json}}</pre> -->
