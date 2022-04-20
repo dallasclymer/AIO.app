@@ -4,12 +4,11 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 
-
 // Firebase
-import { AngularFireModule } from "@angular/fire/compat";
+import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
-import { AngularFirestoreModule } from "@angular/fire//compat/firestore";
+import { AngularFirestoreModule } from '@angular/fire//compat/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 
 // App configuration
@@ -22,8 +21,13 @@ import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 // Application Components
-import { HeaderComponent, LeftMenuComponent } from './components/layout'
-import { SignInComponent, SignUpComponent, ForgotPasswordComponent, VerifyEmailComponent} from './components/auth'
+import { HeaderComponent, LeftMenuComponent } from './components/layout';
+import {
+  SignInComponent,
+  SignUpComponent,
+  ForgotPasswordComponent,
+  VerifyEmailComponent,
+} from './components/auth';
 import { HomeComponent } from './components/home/home.component';
 import { AuthService } from './modules/shared/services/auth.service';
 import { SharedModule } from './modules/shared/shared.module';
@@ -36,15 +40,25 @@ const routes: Routes = [
   { path: 'verify-email-address', component: VerifyEmailComponent },
   { path: 'home', component: HomeComponent },
   {
-    path: "programs",
-    loadChildren: () => import('./modules/programs/programs.module').then(m => m.ProgramsModule),
-    canActivate: [AuthGuard] 
+    path: 'programs',
+    loadChildren: () =>
+      import('./modules/programs/programs.module').then(
+        (m) => m.ProgramsModule
+      ),
+    canActivate: [AuthGuard],
   },
   {
-    path: "leagues",
-    loadChildren: () => import('./modules/leagues/leagues.module').then(m => m.LeaguesModule),
-    canActivate: [AuthGuard] 
-  }  
+    path: 'drop-ins',
+    loadChildren: () =>
+      import('./modules/drop-ins/drop-ins.module').then((m) => m.DropInsModule),
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'leagues',
+    loadChildren: () =>
+      import('./modules/leagues/leagues.module').then((m) => m.LeaguesModule),
+    canActivate: [AuthGuard],
+  },
 ];
 
 @NgModule({
@@ -56,13 +70,13 @@ const routes: Routes = [
     SignUpComponent,
     ForgotPasswordComponent,
     VerifyEmailComponent,
-    HomeComponent
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
-      registrationStrategy: 'registerWhenStable:30000'
+      registrationStrategy: 'registerWhenStable:30000',
     }),
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
@@ -75,8 +89,8 @@ const routes: Routes = [
     SharedModule,
     // FontAwesomeModule
   ],
-  exports:[RouterModule],
+  exports: [RouterModule],
   providers: [AuthService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

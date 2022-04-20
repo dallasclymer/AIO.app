@@ -4,18 +4,20 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { GoogleMapsModule } from '@angular/google-maps';
 
 import { AvatarModule } from 'ngx-avatar';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { AuthService } from './services/auth.service';
 
-import { 
+import {
   CardComponent,
   LongCardComponent,
   TableComponent,
   TeamBannerComponent,
-  ContentTabsComponent
+  ContentTabsComponent,
+  GoogleMapComponent,
 } from './components/index';
 
 @NgModule({
@@ -25,6 +27,7 @@ import {
     ContentTabsComponent,
     TeamBannerComponent,
     LongCardComponent,
+    GoogleMapComponent,
   ],
   imports: [
     CommonModule,
@@ -33,7 +36,8 @@ import {
     ReactiveFormsModule,
     FontAwesomeModule,
     NgbModule,
-    AvatarModule
+    GoogleMapsModule,
+    AvatarModule,
   ],
   exports: [
     FontAwesomeModule,
@@ -43,11 +47,9 @@ import {
     CardComponent,
     ContentTabsComponent,
     TeamBannerComponent,
-    LongCardComponent
+    LongCardComponent,
+    GoogleMapComponent,
   ],
-  providers: [AuthService]
-
+  providers: [AuthService],
 })
-export class SharedModule { 
-
-}
+export class SharedModule {}
